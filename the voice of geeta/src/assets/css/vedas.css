@@ -1,0 +1,38 @@
+.vedas-container {
+    text-align: center;
+    padding: 40px 20px;
+    font-family: "Inclusive Sans", sans-serif;
+  }
+  
+  .vedas-container h1 {
+    font-size: 40px;
+    color: #6A0572;
+  }
+  
+  .vedas-container p {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  .vedas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .veda-card {
+    background: linear-gradient(45deg, #6A0572, #FF5733);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    width: 250px;
+  }
+  
+  .veda-card:hover {
+    transform: translateY(-5px);
+  }
+  

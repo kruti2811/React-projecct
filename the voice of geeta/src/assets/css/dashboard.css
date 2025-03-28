@@ -1,0 +1,93 @@
+/* Apply the 'Inclusive Sans' font */
+* {
+    font-family: 'Inclusive Sans', sans-serif;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(-142deg, #1E1E2E, #6A0572);
+    min-height: 100vh;
+    color: white;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Explore Button */
+.explore-btn {
+    background: linear-gradient(45deg, #6A0572, #FF5733);
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.explore-btn:hover {
+    background: linear-gradient(45deg, #FF5733, #6A0572);
+}
+
+/* Cards Section */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 49px;
+}
+
+/* Card Styling */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 51px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    flex: 1 1 300px;
+    max-width: 350px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 51px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .explore-btn {
+        font-size: 16px;
+        padding: 10px 16px;
+    }
+}
