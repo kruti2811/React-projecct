@@ -1,38 +1,124 @@
-.vedas-container {
-    text-align: center;
-    padding: 40px 20px;
-    font-family: "Inclusive Sans", sans-serif;
-  }
-  
-  .vedas-container h1 {
-    font-size: 40px;
-    color: #6A0572;
-  }
-  
-  .vedas-container p {
-    font-size: 20px;
-    color: #444;
-    margin-bottom: 20px;
-  }
-  
-  .vedas-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .veda-card {
-    background: linear-gradient(45deg, #6A0572, #FF5733);
+/* Background Gradient */
+body {
+    background: linear-gradient(135deg, #2c003e, #660066);
     color: white;
-    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main Container */
+.veda-container {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Heading */
+h2 {
+    margin-top: 30px;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+/* Highlighted Title */
+.title {
+    font-size: 36px;
+    color: orange;
+    font-weight: bold;
+}
+
+/* Vedas List */
+.vedas-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Veda Item */
+.veda-item {
+    width: 80%;
+    max-width: 980px;
+    position: relative;
+    text-align: center;
+}
+
+/* Veda Button */
+.veda-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid orange;
+    color: white;
+    font-size: 22px;
+    padding: 15px;
+    width: 100%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: 0.3s;
-    width: 250px;
-  }
-  
-  .veda-card:hover {
-    transform: translateY(-5px);
-  }
-  
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Initially hidden */
+.veda-content {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid orange;
+    color: white;
+    font-size: 18px;
+    padding: 0 15px;
+    text-align: center;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+/* Show on hover */
+.veda-item:hover .veda-content {
+    opacity: 1;
+    visibility: visible;
+    max-height: 150px;
+    padding: 15px;
+}
+
+/* 🎯 Responsive Styles */
+@media (max-width: 768px) {
+    h2, .title {
+        font-size: 28px;
+    }
+
+    .veda-item {
+        width: 90%;
+    }
+
+    .veda-btn {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .veda-content {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2, .title {
+        font-size: 24px;
+    }
+
+    .veda-item {
+        width: 100%;
+    }
+
+    .veda-btn {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .veda-content {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

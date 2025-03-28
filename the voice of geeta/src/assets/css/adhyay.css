@@ -1,0 +1,172 @@
+/* 🌍 Global Styles */
+body {
+    background: linear-gradient(to right, #3a003a, #5a005a);
+    color: #FFD700;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* 🔥 Title Styles */
+.title {
+    color: #FFD700;
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #E5C100;
+    margin-bottom: 30px;
+}
+
+/* 🛠 Shloka Grid */
+.shloka-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive Grid */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* 🎴 Shloka Card */
+.shloka-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease-in-out;
+}
+
+.shloka-card:hover {
+    transform: translateY(-5px);
+}
+
+.shloka-card h2 {
+    color: #FFD700;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.shloka-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.shloka-card p {
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+}
+
+.shloka-card a {
+    text-decoration: none;
+    color: #FFD700;
+    transition: 0.3s;
+}
+
+.shloka-card a:hover {
+    color: #ffcc00;
+}
+
+/* 🎵 Video & Audio Buttons */
+.buttons {
+    margin-top: 10px;
+}
+
+.video-btn, .audio-btn {
+    background-color: orange;
+    color: black;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.video-btn:hover, .audio-btn:hover {
+    background-color: #ffcc00;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .shloka-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .shloka-card {
+        padding: 10px;
+    }
+
+    .shloka-card h2 {
+        font-size: 18px;
+    }
+
+    .shloka-card p {
+        font-size: 13px;
+    }
+
+    .video-btn, .audio-btn {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .shloka-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .shloka-card {
+        padding: 8px;
+    }
+
+    .shloka-card h2 {
+        font-size: 16px;
+    }
+
+    .shloka-card p {
+        font-size: 12px;
+    }
+
+    .video-btn, .audio-btn {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+.adhyay-title {
+    text-decoration: none;
+    color: #FFD700;
+    transition: color 0.3s ease-in-out;
+}
+
+.adhyay-title:hover {
+    color: orange;
+}
