@@ -11,7 +11,7 @@ function Navbar() {
           <span>Voice of Geeta</span>
         </div>
         <ul className="nav-links">
-          <li><Link to="/">Dashboard</Link></li> {/* ✅ Updated from Home to Dashboard */}
+          <li><Link to="/">Home</Link></li> {/* ✅ Updated from Home to Dashboard */}
           <li><Link to="/adhyay">Adhyay</Link></li>
           <li><Link to="/vedas">Vedas</Link></li>
           <li><Link to="/teachings">Teachings</Link></li>
