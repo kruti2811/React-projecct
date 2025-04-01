@@ -1,93 +1,73 @@
-/* Navbar Styling */
-* {
-    font-family: 'Inclusive Sans', sans-serif;
-}
-
+/* Navbar Styles */
 .navbar {
-    background: linear-gradient(-142deg, #1E1E2E, #6A0572);
+    background: #3a003a;
+    padding: 15px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    align-items: center;
+    color: white;
+    position: relative;
 }
 
-/* Container */
-.container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    padding-bottom: 10px;
-}
-
-/* Logo Styling */
 .logo {
     display: flex;
     align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 0px;
 }
 
 .logo img {
-    width: 40px; /* Adjust size as needed */
+    width: 40px;
     margin-right: 10px;
-}
-
-.logo span {
-    color: white;
-    font-size: 25px;
-    font-weight: bold;
 }
 
 /* Navigation Links */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 60px;
+    gap: 80px;
     padding-top: 10px;
+    transition: max-height 0.3s ease-in-out;
 }
 
-.nav-links li {
-    display: inline;
-}
+    .nav-links li {
+        display: inline;
+    }
 
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    transition: 0.3s;
-}
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 25px;
+        transition: 0.3s;
+    }
 
-.nav-links a:hover {
-    color: #FFA500;
-}
+        .nav-links a:hover {
+            color: #FFA500;
+        }
+
 
 /* Profile Icon */
 .profile-icon img {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     cursor: pointer;
 }
 
 /* Hamburger Menu */
-.menu-toggle {
+.menu-icon {
     display: none;
     font-size: 30px;
-    color: white;
     cursor: pointer;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 992px) {
-    .nav-links {
-        gap: 30px;
-    }
-
-    .nav-links a {
-        font-size: 18px;
-    }
+.menu-checkbox {
+    display: none;
 }
 
-@media screen and (max-width: 768px) {
-    .menu-toggle {
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-icon {
         display: block;
     }
 
@@ -96,27 +76,34 @@
         flex-direction: column;
         position: absolute;
         top: 60px;
-        left: 0;
-        background: #1E1E2E;
+        right: 0;
+        background: rgba(90, 0, 90, 0.5); /* Adjusted opacity */
         width: 100%;
-        padding: 20px 0;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         text-align: center;
-    }
-
-    .nav-links.active {
-        display: flex;
+        padding: 10px;
     }
 
     .nav-links li {
-        padding: 10px 0;
+        padding: 10px;
     }
 
-    .nav-links a {
-        font-size: 18px;
+    .menu-checkbox:checked ~ .nav-links {
+        display: flex;
     }
 
+    /* Show Profile Icon Inside Menu */
+    .mobile-profile {
+        display: block;
+    }
+
+    /* Hide Profile Icon on Desktop */
     .profile-icon {
-        display: none; /* Hide profile icon in mobile */
+        display: none;
+    }
+
+    .mobile-profile img {
+        width: 50px;
+        border-radius: 50%;
+        margin-top: 10px;
     }
 }
