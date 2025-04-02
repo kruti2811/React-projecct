@@ -1,198 +1,143 @@
 /* Navbar Styles */
 .navbar {
-    background: #3a003a;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    position: relative;
+  background: #3a003a;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-    font-weight: bold;
-    margin-right: 0px;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .logo img {
-    width: 40px;
-    margin-right: 10px;
+  width: 40px;
+  margin-right: 10px;
 }
 
 /* Navigation Links */
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 80px;
-    padding-top: 10px;
-    transition: max-height 0.3s ease-in-out;
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-    .nav-links li {
-        display: inline;
-    }
+.nav-links li {
+  display: inline;
+}
 
-    .nav-links a {
-        text-decoration: none;
-        color: white;
-        font-size: 25px;
-        transition: 0.3s;
-    }
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  transition: 0.3s;
+}
 
-        .nav-links a:hover {
-            color: #FFA500;
-        }
-
+.nav-links a:hover {
+  color: #FFA500;
+}
 
 /* Profile Icon */
+.profile-icon {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
 .profile-icon img {
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid #f1f1f1;
+  transition: transform 0.3s ease;
 }
 
-/* Hamburger Menu */
-.menu-icon {
-    display: none;
-    font-size: 30px;
-    cursor: pointer;
+.profile-icon:hover img {
+  transform: scale(1.1);
 }
 
-.menu-checkbox {
-    display: none;
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 160px;
+  display: none;
+  transition: opacity 0.3s ease;
+  opacity: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .menu-icon {
-        display: block;
-    }
+.profile-icon:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+}
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: rgba(90, 0, 90, 0.5); /* Adjusted opacity */
-        width: 100%;
-        text-align: center;
-        padding: 10px;
-    }
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    .nav-links li {
-        padding: 10px;
-    }
+.dropdown-menu li {
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
 
-    .menu-checkbox:checked ~ .nav-links {
-        display: flex;
-    }
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px;
+}
 
-    /* Show Profile Icon Inside Menu */
-    .mobile-profile {
-        display: block;
-    }
+.dropdown-menu li:hover {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
 
-    /* Hide Profile Icon on Desktop */
-    .profile-icon {
-<<<<<<< HEAD
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-      }
-      
-      .profile-icon img {
-        width: 40px; /* Adjust the size of the profile image */
-        border-radius: 50%;
-        border: 2px solid #f1f1f1;
-        transition: transform 0.3s ease;
-      }
-      
-      .profile-icon:hover img {
-        transform: scale(1.1); /* Slight zoom effect when hovering over the profile image */
-      }
-      
-      .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        min-width: 160px;
-        display: none; /* Hidden by default */
-        transition: opacity 0.3s ease;
-        opacity: 0;
-      }
-      
-      .profile-icon:hover .dropdown-menu {
-        display: block;
-        opacity: 1; /* Smooth fade-in effect */
-      }
-      
-      .dropdown-menu ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      
-      .dropdown-menu li {
-        padding: 12px;
-        text-align: left;
-        font-size: 14px;
-        transition: background-color 0.3s ease;
-      }
-      
-      .dropdown-menu li a {
-        text-decoration: none;
-        color: #333;
-        display: block;
-        padding: 5px;
-      }
-      
-      .dropdown-menu li:hover {
-        background-color: #f0f0f0;
-        border-radius: 8px;
-      }
-      
-      .dropdown-menu li a:hover {
-        color: #1a73e8; /* Color change on hover */
-      }
-      
-      .dropdown-menu li:first-child {
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
-      }
-      
-      .dropdown-menu li:last-child {
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-      }
-      
-      .profile-icon .dropdown-menu::after {
-        content: '';
-        position: absolute;
-        top: -8px;
-        right: 20px;
-        border-width: 8px;
-        border-style: solid;
-        border-color: transparent transparent #fff transparent;
-      }
-      
-      
-=======
-        display: none;
-    }
+.dropdown-menu li a:hover {
+  color: #1a73e8;
+}
 
-    .mobile-profile img {
-        width: 50px;
-        border-radius: 50%;
-        margin-top: 10px;
-    }
->>>>>>> 431f4517550669bf0d8d95a94ec5fb43f2e7e6af
+.dropdown-menu li:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.profile-icon .dropdown-menu::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 20px;
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
 }
