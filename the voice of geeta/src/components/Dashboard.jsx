@@ -1,15 +1,16 @@
 import React from "react";
 import "../assets/css/dashboard.css"; // Import CSS file
 
+
 function Dashboard() {
   return (
     <div className="dashboard-container">
-      {/* Page Title */}
+     
       <h2 className="page-title">📖 Voice of Geeta</h2>
       <p className="subtitle">Discover the timeless wisdom of the Bhagavad Gita.</p>
 
       <button className="explore-btn">Explore Geeta</button>
-
+      
       {/* Cards Section */}
       <div className="cards">
         {/* Bhagavad Gita Card */}
