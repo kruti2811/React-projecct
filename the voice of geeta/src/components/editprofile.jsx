@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const LoginScreen = () => {
+const Editprofile = () => {
   const navigate = useNavigate();
 
   return (
@@ -65,4 +65,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default Editprofile;
