@@ -6,7 +6,9 @@ import Teachings from "./components/Teachings";
 import Adhyay from "./components/Adhyay";
 import Shloka from "./components/Shloka";
 import Vedas from "./components/Vedas";
+
 import Login from "./components/Login";
+import Editprofile from "./components/editprofile";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
         <Route path="/shloka/:id" element={<Shloka />} /> 
         <Route path="/vedas" element={<Vedas />} />
         <Route path="/teachings" element={<Teachings />} />
+        <Route path="/editprofile" element={<Editprofile />} />
       </Routes>
     </Router>
   );
