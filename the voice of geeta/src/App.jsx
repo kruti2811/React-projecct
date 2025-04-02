@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Login />} />
+      <Route path="/" element={<Login />} />
       <Route path="/dashboard" element={<Dashboard />} />{/* ✅ Dashboard as Home */}
         <Route path="/adhyay" element={<Adhyay />} />
         <Route path="/shloka/:id" element={<Shloka />} /> 
