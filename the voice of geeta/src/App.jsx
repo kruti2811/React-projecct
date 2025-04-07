@@ -6,9 +6,11 @@ import Teachings from "./components/Teachings";
 import Adhyay from "./components/Adhyay";
 import Shloka from "./components/Shloka";
 import Vedas from "./components/Vedas";
-
-import Login from "./components/Login";
 import Editprofile from "./components/editprofile";
+
+import Login from "./pages/admin/login.jsx";
+import AdminNavbar from "./components/AdminNavbar.jsx";
+import User from "./pages/admin/user.jsx";
 
 function App() {
   return (
@@ -22,6 +24,11 @@ function App() {
         <Route path="/vedas" element={<Vedas />} />
         <Route path="/teachings" element={<Teachings />} />
         <Route path="/editprofile" element={<Editprofile />} />
+
+        <Route path="/admin/login" element={<Login />} />
+        <Route path="/admin/dashboard" element={<AdminNavbar><Dashboard /></AdminNavbar>} />
+        <Route path="/admin/users" element={<AdminNavbar><User /></AdminNavbar>} />
+      
       </Routes>
     </Router>
   );
