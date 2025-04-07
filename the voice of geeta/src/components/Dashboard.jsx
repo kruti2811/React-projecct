@@ -2,7 +2,7 @@ import React from "react";
 import "../assets/css/dashboard.css"; // Import CSS file
 
 
-function Dashboard() {
+function UserDashboard() {
   return (
     <div className="dashboard-container">
      
@@ -41,4 +41,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default UserDashboard;

@@ -1,7 +1,23 @@
-// src/pages/admin/Dashboard.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Dashboard = () => {
+const AdminDashboard = () => {
+  const navigate = useNavigate();
+
+  // ✅ Protect Dashboard - Redirect to Login if Not Authenticated
+  useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      alert('Unauthorized! Please log in.');
+      navigate('/admin/login');
+    }
+  }, [navigate]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken'); // Remove token
+    navigate('/admin/login'); // Redirect to login
+  };
+
   return (
     <div className="content">
       <h2>Admin Dashboard</h2>
@@ -20,8 +36,13 @@ const Dashboard = () => {
           <span>150</span>
         </div>
       </div>
+
+      {/* 🔹 Logout Button */}
+      <button onClick={handleLogout} style={{ marginTop: '20px', background: 'red', color: 'white' }}>
+        Logout
+      </button>
     </div>
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;
