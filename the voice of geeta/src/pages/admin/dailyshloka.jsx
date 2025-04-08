@@ -40,10 +40,10 @@ const dailysholka = () => {
       >
         <thead style={{ backgroundColor: "#f9f9f9" }}>
           <tr style={{ border: "1px solid #e0e0e0" }}>
-            <th style={{ padding: "10px" }}>Number</th>
-            <th style={{ padding: "10px" }}>Adhyay</th>
-            <th style={{ padding: "10px" }}>Shlokas Description</th>
-            <th style={{ padding: "10px" }}>Actions</th>
+            <th style={{ padding: "10px" ,color:"black"}}>Number</th>
+            <th style={{ padding: "10px" ,color:"black"}}>Adhyay</th>
+            <th style={{ padding: "10px" ,color:"black"}}>Shlokas Description</th>
+            <th style={{ padding: "10px",color:"black" }}>Actions</th>
           </tr>
         </thead>
         <tbody>
