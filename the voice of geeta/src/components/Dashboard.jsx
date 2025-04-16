@@ -42,7 +42,7 @@ function UserDashboard() {
           {/* Check if shloka exists, then display it */}
           {shloka ? (
             <div className="shloka-content">
-              <h4>📖 Today's Shloka</h4>
+              <h3>📖 Today's Shloka</h3>
               <p className="sanskrit">{shloka.title}</p> {/* Display the Sanskrit Shloka */}
               <p className="meaning"><strong>Meaning:</strong> {shloka.content}</p> {/* Display the Meaning */}
             </div>

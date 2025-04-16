@@ -5,7 +5,6 @@ import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/dashboard";
 import User from "./pages/admin/user";
 import Addshloka from "./pages/admin/Addshloka";
-import DailyShloka from "./pages/admin/dailyshloka"; // ✅ Corrected Import
 import AdminProfile from "./pages/admin/profile";
 
 function AdminRoutes() {
@@ -22,7 +21,6 @@ function AdminRoutes() {
           <Route path="dashboard" element={<AdminDashboard />} /> {/* ✅ Correct Route */}
           <Route path="user" element={<User />} /> {/* ✅ Correct Route */}
           <Route path="addshloka" element={<Addshloka />} /> {/* ✅ Correct Route */}
-          <Route path="dailyshloka" element={<DailyShloka />} /> {/* ✅ Correct Route */}
           <Route path="profile" element={<AdminProfile />} /> {/* ✅ Correct Route */}
         </Route>
       ) : (
