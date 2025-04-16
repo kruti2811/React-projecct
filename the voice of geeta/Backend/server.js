@@ -1,7 +1,7 @@
-// server.js
 import express from 'express';
 import cors from 'cors';
-import shlokaRoutes from './routes/shlokaRoutes.js'; // ✅ make sure this path is correct
+import shlokaRoutes from './routes/shlokaRoutes.js';
+import userRoutes from './routes/userRoutes.js'; // ✅ new line
 
 const app = express();
 const PORT = 5000;
@@ -12,7 +12,10 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use('/api/shlokas', shlokaRoutes); // ✅ this is the route you want
+
+// 🔁 API Routes
+app.use('/api/shlokas', shlokaRoutes);
+app.use('/api/users', userRoutes); // ✅ route for users
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

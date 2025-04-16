@@ -1,92 +1,68 @@
-import { useState } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+// src/pages/admin/AdminLogin.jsx
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function AdminLogin() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const AdminLogin = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Function to handle login
-  const loginAdmin = async () => {
-    try {
-      // Sending POST request to backend with username and password
-      const res = await axios.post('http://localhost:5000/api/admin/login', {
-        username,
-        password,
-      });
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-      // If response contains token, save it to localStorage and navigate to the dashboard
-      if (res.data.token) {
-        localStorage.setItem('adminToken', res.data.token); // Save token in localStorage
-        navigate('/admin/dashboard'); // Redirect to Admin Dashboard
-      } else {
-        alert('Invalid credentials');
-      }
-    } catch (err) {
-      console.error(err);
-      alert('Login failed! Invalid credentials.');
+    // ✅ Default credentials
+    const defaultUsername = "admin";
+    const defaultPassword = "123";
+
+    if (username === defaultUsername && password === defaultPassword) {
+      localStorage.setItem("adminToken", "dummyToken123"); // You can later use JWT
+      navigate("/dashboard"); // ⏩ redirect to admin dashboard
+    } else {
+      setError("Invalid username or password");
     }
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>Admin Login</h2>
-      
-      {/* Username input */}
-      <input
-        placeholder="Username"
-        onChange={(e) => setUsername(e.target.value)} // Update username state
-        style={styles.input}
-      />
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <form onSubmit={handleLogin} className="bg-white p-8 rounded-lg shadow-md w-96">
+        <h2 className="text-2xl font-bold mb-6 text-center">Admin Login</h2>
 
-      {/* Password input */}
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)} // Update password state
-        style={styles.input}
-      />
+        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
 
-      {/* Login button */}
-      <button onClick={loginAdmin} style={styles.button}>
-        Login
-      </button>
+        <div className="mb-4">
+          <label className="block mb-1 font-medium">Username</label>
+          <input
+            type="text"
+            className="w-full border px-3 py-2 rounded"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            placeholder="Enter admin username"
+          />
+        </div>
+
+        <div className="mb-6">
+          <label className="block mb-1 font-medium">Password</label>
+          <input
+            type="password"
+            className="w-full border px-3 py-2 rounded"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            placeholder="Enter password"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+        >
+          Login
+        </button>
+      </form>
     </div>
   );
-}
-
-// Styles for the component
-const styles = {
-  container: {
-    width: '300px',
-    margin: '50px auto',
-    padding: '30px',
-    backgroundColor: '#f4f4f4',
-    borderRadius: '10px',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-  },
-  heading: {
-    textAlign: 'center',
-    marginBottom: '20px',
-    fontSize: '24px',
-    fontWeight: 'bold',
-  },
-  input: {
-    width: '100%',
-    padding: '10px',
-    marginBottom: '15px',
-    border: '1px solid #ccc',
-    borderRadius: '5px',
-  },
-  button: {
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontSize: '16px',
-  },
 };
+
+export default AdminLogin;
