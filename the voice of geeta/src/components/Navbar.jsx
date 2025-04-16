@@ -27,7 +27,8 @@ function Navbar() {
             <div className="dropdown-menu">
               <ul>
                 <li><Link to="/editprofile">Edit Profile</Link></li>
-                <li><Link to="/logout">Logout</Link></li>
+                <li><Link to="/login">Logout</Link></li>
+                <li><Link to="/profile">My Profile</Link></li>
               </ul>
             </div>
           )}
