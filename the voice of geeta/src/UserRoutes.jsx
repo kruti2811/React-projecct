@@ -7,6 +7,9 @@ import Adhyay from "./components/Adhyay";
 import Shloka from "./components/Shloka";
 import Vedas from "./components/Vedas";
 import Editprofile from "./components/editprofile";
+import Login from "./components/login"
+import Profile from "./components/profile";
+import Register from "./components/register"
 
 function UserRoutes() {
   return (
@@ -20,6 +23,11 @@ function UserRoutes() {
         <Route path="/vedas" element={<Vedas />} />
         <Route path="/teachings" element={<Teachings />} />
         <Route path="/editprofile" element={<Editprofile />} />
+        <Route path="/login" element ={<Login/>} />
+        <Route path="/profile" element ={<Profile/>} />
+        <Route path="/register" element ={<Register/>} />
+
+
       </Routes>
     </>
   );
