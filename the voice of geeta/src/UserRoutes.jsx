@@ -10,6 +10,8 @@ import Editprofile from "./components/editprofile";
 import Login from "./components/login"
 import Profile from "./components/profile";
 import Register from "./components/register"
+import AdhyayAudio from "./components/AdhyayAudio";
+import AdhyayVideo from "./components/AdhyayVideo";
 
 function UserRoutes() {
   return (
@@ -26,6 +28,8 @@ function UserRoutes() {
         <Route path="/login" element ={<Login/>} />
         <Route path="/profile" element ={<Profile/>} />
         <Route path="/register" element ={<Register/>} />
+        <Route path="/adhyay/audio/:id" element={<AdhyayAudio />} />
+        <Route path="/adhyay/video/:id" element={<AdhyayVideo />} />
 
 
       </Routes>

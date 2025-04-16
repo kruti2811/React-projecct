@@ -1,0 +1,44 @@
+.adhyay-detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fef9f0;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Inclusive Sans', sans-serif;
+  }
+  
+  .adhyay-detail-container h2 {
+    font-size: 32px;
+    color: #6d4c41;
+    margin-bottom: 10px;
+  }
+  
+  .adhyay-description {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 30px;
+  }
+  
+  .media-player {
+    width: 100%;
+    max-width: 640px;
+    margin-bottom: 20px;
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #6d4c41;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #5d3b33;
+  }
+  
