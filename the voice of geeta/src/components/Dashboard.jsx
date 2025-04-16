@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/css/dashboard.css"; // Import CSS file
 
-
 function UserDashboard() {
+  const [shloka, setShloka] = useState(null); // State to hold the shloka data
+
+  useEffect(() => {
+    // Fetch the most recent shloka from the API
+    fetch("http://localhost:5000/api/shlokas/today")
+      .then((response) => response.json())
+      .then((data) => setShloka(data))
+      .catch((error) => console.error("Error fetching daily shloka:", error));
+  }, []); // Run this effect once when the component is mounted
+
   return (
     <div className="dashboard-container">
-     
       <h2 className="page-title">📖 Voice of Geeta</h2>
       <p className="subtitle">Discover the timeless wisdom of the Bhagavad Gita.</p>
 
       <button className="explore-btn">Explore Geeta</button>
-      
+
       {/* Cards Section */}
       <div className="cards">
         {/* Bhagavad Gita Card */}
@@ -31,10 +39,16 @@ function UserDashboard() {
 
         {/* Daily Shloka Card */}
         <div className="card">
-          <h3>🔔 Daily Shlokas</h3>
-          <p>
-            Take the first step today! Begin your journey towards spiritual growth, resilience, and true happiness. Share this wisdom with others and uplift those around you!
-          </p>
+          {/* Check if shloka exists, then display it */}
+          {shloka ? (
+            <div className="shloka-content">
+              <h3>📖 Today's Shloka</h3>
+              <p className="sanskrit">{shloka.title}</p> {/* Display the Sanskrit Shloka */}
+              <p className="meaning"><strong>Meaning:</strong> {shloka.content}</p> {/* Display the Meaning */}
+            </div>
+          ) : (
+            <p>Loading today's shloka...</p>
+          )}
         </div>
       </div>
     </div>
