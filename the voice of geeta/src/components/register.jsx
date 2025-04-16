@@ -1,3 +1,5 @@
+// src/pages/Register.jsx
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/login.css";
@@ -5,15 +7,36 @@ import "../assets/css/login.css";
 const Register = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Save the username in localStorage
-    localStorage.setItem("username", username);
+    const user = { username, email, password };
 
-    // Navigate to dashboard
-    navigate("/login");
+    try {
+      console.log("Sending data to server:", user); // Debugging line
+
+      const response = await fetch("http://localhost:5000/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("Registration Successful:", data);
+        navigate("/login");
+      } else {
+        console.error("Registration failed:", data.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -29,24 +52,29 @@ const Register = () => {
             className="input-field"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
           <input
-            type="text"
+            type="email"
             placeholder="Enter Your Email"
             className="input-field"
-           
-            
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="password"
             placeholder="Enter Your Password"
             className="input-field"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <button type="submit" className="submit-btn">
             Submit
           </button>
         </form>
-        <p className="forgot-password">Forgot Password ?</p>
+        <p className="forgot-password">Forgot Password?</p>
       </div>
 
       <div className="image-section">

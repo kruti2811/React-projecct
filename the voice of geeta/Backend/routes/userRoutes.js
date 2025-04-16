@@ -1,17 +1,10 @@
-// routes/userRoutes.js
-import express from 'express';
-import db from '../config/db.js';
+import express from "express";
+import { registerUser, getUsers } from "../controllers/userController.js";
 
 const router = express.Router();
 
-// GET all users
-router.get('/', async (req, res) => {
-  try {
-    const result = await db.query('SELECT * FROM users');
-    res.json(result.rows);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
+router.post("/register", registerUser); // Register route
+router.get("/", getUsers); // Get all users route
 
 export default router;
+ 

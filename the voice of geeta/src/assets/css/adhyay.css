@@ -7,14 +7,19 @@ body {
     padding: 0;
 }
 
-.container {
+.adhyay-container {
     text-align: center;
     padding: 20px;
+    color: hsl(51, 100%, 50%);
 }
-
+.h2{
+    color: hsl(51, 100%, 50%);
+    font-size: 36px;
+    margin-top: 20px;
+}
 /* 🔥 Title Styles */
 .title {
-    color: #FFD700;
+    color: hsl(51, 100%, 50%);
     font-size: 36px;
     margin-top: 20px;
 }

@@ -1,39 +1,101 @@
-// pages/admin/User.jsx
 import React, { useEffect, useState } from "react";
 
 const User = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users")
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.error(err));
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/users");
+        const data = await response.json();
+        console.log("Users fetched:", data); // Debugging line
+        setUsers(data); // Set users data
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
   }, []);
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">All Users</h2>
-      <table className="w-full border text-left">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="p-2">ID</th>
-            <th className="p-2">Name</th>
-            <th className="p-2">Email</th>
-            <th className="p-2">Created At</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id} className="border-t">
-              <td className="p-2">{user.id}</td>
-              <td className="p-2">{user.name}</td>
-              <td className="p-2">{user.email}</td>
-              <td className="p-2">{new Date(user.created_at).toLocaleString()}</td>
+    <div className="admin-dashboard">
+      <h2>User List</h2>
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.length > 0 ? (
+              users.map((user, index) => (
+                <tr key={index}>
+                  <td>{user.username}</td>
+                  <td>{user.email}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="2" className="no-users">No users found</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <style jsx>{`
+        .admin-dashboard {
+          padding: 20px;
+          font-family: Arial, sans-serif;
+        }
+
+        h2 {
+          text-align: center;
+          margin-bottom: 20px;
+          color: #fff;
+        }
+
+        .table-container {
+          margin-top: 20px;
+          display: flex;
+          justify-content: center;
+        }
+
+        table {
+          width: 80%;
+          border-collapse: collapse;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+          padding: 12px;
+          text-align: left;
+          border: 1px solid #ddd;
+        }
+
+        th {
+          background-color: #f2f2f2;
+          font-weight: bold;
+          color: #444;
+        }
+
+        td {
+          background-color: #f9f9f9;
+        }
+
+        td:hover {
+          background-color: #e8f0fe;
+        }
+
+        .no-users {
+          text-align: center;
+          font-style: italic;
+          color: #888;
+        }
+      `}</style>
     </div>
   );
 };

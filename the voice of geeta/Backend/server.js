@@ -1,21 +1,14 @@
-import express from 'express';
-import cors from 'cors';
-import shlokaRoutes from './routes/shlokaRoutes.js';
-import userRoutes from './routes/userRoutes.js'; // ✅ new line
+import express from "express";
+import cors from "cors";
+import userRoutes from "./routes/userRoutes.js"; // Import your user routes
 
 const app = express();
 const PORT = 5000;
 
-app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST'],
-}));
-
+app.use(cors());
 app.use(express.json());
 
-// 🔁 API Routes
-app.use('/api/shlokas', shlokaRoutes);
-app.use('/api/users', userRoutes); // ✅ route for users
+app.use("/api/users", userRoutes); // Ensure the correct API route for users
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

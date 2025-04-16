@@ -6,16 +6,37 @@ const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Save credentials in localStorage
-    localStorage.setItem("username", username);
-    localStorage.setItem("password", password);
+    // Clear previous error
+    setError("");
 
-    // Navigate to dashboard
-    navigate("/dashboard");
+    try {
+      const response = await fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // ✅ Save username and redirect
+        localStorage.setItem("username", data.user.username);
+        localStorage.setItem("userId", data.user.id); // You can use this later
+        navigate("/dashboard");
+      } else {
+        setError(data.message || "Invalid credentials");
+      }
+    } catch (err) {
+      console.error("Login error:", err.message);
+      setError("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -23,7 +44,11 @@ const Login = () => {
       <div className="login-form">
         <h2>Login</h2>
         <p>Start Your Life with Divine Wisdom!</p>
-        <img src="/images/krishnaicon.png" alt="Krishna Icon" className="logo" />
+        <img
+          src="/images/krishnaicon.png"
+          alt="Krishna Icon"
+          className="logo"
+        />
 
         <form onSubmit={handleSubmit}>
           <input
@@ -44,8 +69,12 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit" className="submit-btn">Submit</button>
+          <button type="submit" className="submit-btn">
+            Submit
+          </button>
         </form>
+
+        {error && <p className="error-message">{error}</p>}
 
         <p className="forgot-password">Forgot Password ?</p>
       </div>

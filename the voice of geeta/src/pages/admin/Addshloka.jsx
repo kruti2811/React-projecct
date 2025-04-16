@@ -80,7 +80,7 @@ function AdminPanel() {
       minHeight: '100px',
     },
     button: {
-      backgroundColor: '#4caf50',
+      backgroundColor: '#7A00AD',
       color: 'white',
       padding: '12px',
       fontSize: '18px',
@@ -91,7 +91,7 @@ function AdminPanel() {
       transition: 'background-color 0.3s ease',
     },
     buttonHover: {
-      backgroundColor: '#45a049',
+      backgroundColor: '#7A00AE',
     },
     message: {
       marginTop: '20px',
@@ -102,11 +102,11 @@ function AdminPanel() {
       fontWeight: 'bold',
     },
     successMessage: {
-      backgroundColor: '#4caf50',
+      backgroundColor: '#7A00AD',
       color: 'white',
     },
     errorMessage: {
-      backgroundColor: '#f44336',
+      backgroundColor: '#7A00AD',
       color: 'white',
     },
   };
