@@ -4,31 +4,33 @@ import "../assets/css/login.css";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState(""); // Changed to email
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Clear previous error
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/login", {
+      const response = await fetch("http://localhost:3000/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({
+          email, // ✅ Backend expects email
+          password,
+        }),
       });
 
       const data = await response.json();
+      console.log("Login response:", data); // 🔍 Debug
 
       if (response.ok) {
-        // ✅ Save username and redirect
+        // ✅ Save user info and redirect
         localStorage.setItem("username", data.user.username);
-        localStorage.setItem("userId", data.user.id); // You can use this later
+        localStorage.setItem("userId", data.user.id);
         navigate("/dashboard");
       } else {
         setError(data.message || "Invalid credentials");
@@ -52,12 +54,12 @@ const Login = () => {
 
         <form onSubmit={handleSubmit}>
           <input
-            type="text"
-            placeholder="Enter Your Username"
+            type="email"
+            placeholder="Enter Your Email"
             className="input-field"
-            value={username}
-            name="username"
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <input

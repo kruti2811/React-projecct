@@ -1,4 +1,3 @@
-// src/pages/admin/AdminLogin.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,30 +10,99 @@ const AdminLogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // ✅ Default credentials
     const defaultUsername = "admin";
     const defaultPassword = "123";
 
     if (username === defaultUsername && password === defaultPassword) {
-      localStorage.setItem("adminToken", "dummyToken123"); // You can later use JWT
-      navigate("/admin/dashboard"); // ⏩ redirect to admin dashboard
+      localStorage.setItem("adminToken", "dummyToken123");
+      navigate("/admin/dashboard");
     } else {
       setError("Invalid username or password");
     }
   };
 
+  const styles = {
+    container: {
+      minHeight: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#fffaf5",
+      backgroundImage: "url('/images/bg-pattern.png')", // Optional subtle pattern
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat",
+      padding: "20px",
+    },
+    form: {
+      backgroundColor: "#ffffff",
+      padding: "40px",
+      borderRadius: "15px",
+      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
+      width: "100%",
+      maxWidth: "400px",
+      border: "2px solid #ff914d",
+    },
+    heading: {
+      fontSize: "30px",
+      color: "#ff914d",
+      textAlign: "center",
+      marginBottom: "24px",
+      fontFamily: "'Inclusive Sans', sans-serif",
+      letterSpacing: "1px",
+    },
+    label: {
+      display: "block",
+      marginBottom: "8px",
+      fontWeight: "600",
+      color: "#293241",
+    },
+    input: {
+      width: "100%",
+      padding: "12px 16px",
+      borderRadius: "10px",
+      border: "1.5px solid #ddd",
+      marginBottom: "20px",
+      fontSize: "16px",
+      fontFamily: "sans-serif",
+      outline: "none",
+      transition: "0.3s border ease",
+    },
+    inputFocus: {
+      borderColor: "#ff914d",
+    },
+    button: {
+      width: "100%",
+      padding: "12px 0",
+      backgroundColor: "#ff914d",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      fontWeight: "600",
+      fontSize: "16px",
+      cursor: "pointer",
+      fontFamily: "'Inclusive Sans', sans-serif",
+      transition: "background-color 0.3s ease",
+    },
+    error: {
+      color: "red",
+      textAlign: "center",
+      marginBottom: "15px",
+      fontWeight: "500",
+    },
+  };
+
   return (
-    <div className="flex items-center justify-center h-screen bg-white-100">
-      <form onSubmit={handleLogin} className="bg-white p-8 rounded-lg shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">Admin Login</h2>
+    <div style={styles.container}>
+      <form onSubmit={handleLogin} style={styles.form}>
+        <h2 style={styles.heading}>Admin Login</h2>
 
-        {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
+        {error && <p style={styles.error}>{error}</p>}
 
-        <div className="mb-4">
-          <label className="block mb-1 font-medium">Username</label>
+        <div>
+          <label style={styles.label}>Username</label>
           <input
             type="text"
-            className="w-full border px-3 py-2 rounded"
+            style={styles.input}
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -42,11 +110,11 @@ const AdminLogin = () => {
           />
         </div>
 
-        <div className="mb-6">
-          <label className="block mb-1 font-medium">Password</label>
+        <div>
+          <label style={styles.label}>Password</label>
           <input
             type="password"
-            className="w-full border px-3 py-2 rounded"
+            style={styles.input}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
@@ -54,10 +122,7 @@ const AdminLogin = () => {
           />
         </div>
 
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
-        >
+        <button type="submit" style={styles.button}>
           Login
         </button>
       </form>

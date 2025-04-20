@@ -4,8 +4,9 @@ import AdminLayout from "./components/AdminLayout";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminDashboard from "./pages/admin/dashboard";
 import User from "./pages/admin/user";
-import Addshloka from "./pages/admin/Addshloka";
+import AddShloka from "./pages/admin/Addshloka";
 import AdminProfile from "./pages/admin/profile";
+import DailyShlokas from "./pages/admin/DailyShlokas";
 
 function AdminRoutes() {
   const isAuthenticated = localStorage.getItem("adminToken"); // ✅ Check if Admin is Logged In
@@ -20,7 +21,9 @@ function AdminRoutes() {
         <Route path="/" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} /> {/* ✅ Correct Route */}
           <Route path="user" element={<User />} /> {/* ✅ Correct Route */}
-          <Route path="addshloka" element={<Addshloka />} /> {/* ✅ Correct Route */}
+          <Route path="addshloka" element={<AddShloka />} />
+
+          <Route path="dailyshlokas" element={<DailyShlokas />} />
           <Route path="profile" element={<AdminProfile />} /> {/* ✅ Correct Route */}
         </Route>
       ) : (

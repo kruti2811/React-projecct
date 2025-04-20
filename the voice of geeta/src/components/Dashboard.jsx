@@ -1,31 +1,56 @@
 import React, { useState, useEffect } from "react";
-import "../assets/css/dashboard.css"; // Import CSS file
+import "../assets/css/dashboard.css";
 
 function UserDashboard() {
-  const [shloka, setShloka] = useState(null); // State to hold the shloka data
+  const [shloka, setShloka] = useState(null);
+  const [error, setError] = useState(null);
+  const [isVisible, setIsVisible] = useState(false); // Track visibility state
 
   useEffect(() => {
-    // Fetch the most recent shloka from the API
-    fetch("http://localhost:5000/api/shlokas/today")
-      .then((response) => response.json())
-      .then((data) => setShloka(data))
-      .catch((error) => console.error("Error fetching daily shloka:", error));
-  }, []); // Run this effect once when the component is mounted
+    // Fetch today's shloka only if it is visible
+    const fetchDailyShloka = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/shlokas/today");
+        if (!response.ok) {
+          throw new Error("Failed to fetch today's shloka");
+        }
+        const data = await response.json();
+
+        // Set the first visible shloka if available
+        if (data.length > 0 && data[0].visible) {
+          setShloka(data[0]); // Display the first shloka in the response
+        } else {
+          setError("No shloka available for today.");
+        }
+      } catch (err) {
+        console.error("❌ Error fetching daily shloka:", err);
+        setError("Unable to load today's shloka.");
+      }
+    };
+
+    fetchDailyShloka();
+  }, []); // Empty dependency array ensures this runs once on mount
+
+  const handleShowShloka = () => {
+    setIsVisible(true); // Set visibility to true when the button is clicked
+  };
 
   return (
     <div className="dashboard-container">
       <h2 className="page-title">📖 Voice of Geeta</h2>
-      <p className="subtitle">Discover the timeless wisdom of the Bhagavad Gita.</p>
+      <p className="subtitle">
+        Discover the timeless wisdom of the Bhagavad Gita.
+      </p>
 
       <button className="explore-btn">Explore Geeta</button>
 
-      {/* Cards Section */}
       <div className="cards">
         {/* Bhagavad Gita Card */}
         <div className="card">
           <h3>📿 Bhagavad Gita</h3>
           <p>
-            The Bhagavad Gita is a guide to self-realization, righteousness, and spiritual awakening, leading to inner peace and success.
+            The Bhagavad Gita is a guide to self-realization, righteousness,
+            and spiritual awakening, leading to inner peace and success.
           </p>
         </div>
 
@@ -33,21 +58,30 @@ function UserDashboard() {
         <div className="card">
           <h3>📜 Vedic Knowledge</h3>
           <p>
-            Vedic knowledge is a complete guide to life, teaching spirituality, ethics, science, and self-discipline, leading to ultimate wisdom and inner peace.
+            Vedic knowledge is a complete guide to life, teaching spirituality,
+            ethics, science, and self-discipline, leading to ultimate wisdom
+            and inner peace.
           </p>
         </div>
 
         {/* Daily Shloka Card */}
         <div className="card">
-          {/* Check if shloka exists, then display it */}
+          <h3>🕉️ Today's Shloka</h3>
           {shloka ? (
-            <div className="shloka-content">
-              <h3>📖 Today's Shloka</h3>
-              <p className="sanskrit">{shloka.title}</p> {/* Display the Sanskrit Shloka */}
-              <p className="meaning"><strong>Meaning:</strong> {shloka.content}</p> {/* Display the Meaning */}
-            </div>
+            isVisible ? (
+              <>
+                <p className="sanskrit">🪔 {shloka.title}</p>
+                <p className="meaning">
+                  <strong>Meaning:</strong> {shloka.content}
+                </p>
+              </>
+            ) : (
+              <button className="show-btn" onClick={handleShowShloka}>
+                Show Shloka
+              </button>
+            )
           ) : (
-            <p>Loading today's shloka...</p>
+            <p>{error || "Loading..."}</p>
           )}
         </div>
       </div>
@@ -55,18 +89,4 @@ function UserDashboard() {
   );
 }
 
-
-
-import { Link } from "react-router-dom";
-
-const Dashboard = () => {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-      <Link to="/profile">Go to Profile</Link>
-    </div>
-  );
-};
-
 export default UserDashboard;
-
