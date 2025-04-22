@@ -21,7 +21,7 @@ function AdhyayVideo() {
       <p className="adhyay-description">{description}</p>
 
       <video width="640" height="360" controls className="media-player">
-        <source src={`/video/adhyay${id}.mp4`} type="video/mp4" />
+        <source src={`/videos/adhyay${id}.mp4`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

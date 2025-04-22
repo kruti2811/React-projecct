@@ -60,15 +60,15 @@ const AdminDashboard = () => {
       <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
         <div style={statCardStyle}>
           <h3 style={{ color: theme.primary }}>Total Adhyayas</h3>
-          <span style={{ fontSize: '2rem', fontWeight: 'bold', color: theme.secondary }}>18</span>
+          <span style={{ fontSize: '2rem', fontWeight: 'bold', color: theme.secondary }}>6</span>
         </div>
         <div style={statCardStyle}>
           <h3 style={{ color: theme.primary }}>Total Shlokas</h3>
-          <span style={{ fontSize: '2rem', fontWeight: 'bold', color: theme.secondary }}>700</span>
+          <span style={{ fontSize: '2rem', fontWeight: 'bold', color: theme.secondary }}>6</span>
         </div>
         <div style={statCardStyle}>
           <h3 style={{ color: theme.primary }}>Active Users</h3>
-          <span style={{ fontSize: '2rem', fontWeight: 'bold', color: theme.secondary }}>150</span>
+          <span style={{ fontSize: '2rem', fontWeight: 'bold', color: theme.secondary }}>10</span>
         </div>
       </div>
 

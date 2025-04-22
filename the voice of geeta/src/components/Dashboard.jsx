@@ -70,7 +70,7 @@ function UserDashboard() {
           {shloka ? (
             isVisible ? (
               <>
-                <p className="sanskrit">🪔 {shloka.title}</p>
+                <p className="sanskrit"> {shloka.title}</p>
                 <p className="meaning">
                   <strong>Meaning:</strong> {shloka.content}
                 </p>

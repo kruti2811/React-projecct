@@ -19,20 +19,23 @@ function Navbar() {
           <li><Link to="/teachings">Teachings</Link></li>
         </ul>
         <div 
-          className="profile-icon"
-          onMouseEnter={() => setDropdownOpen(true)}
-          onMouseLeave={() => setDropdownOpen(false)}>
-          <img src="/images/profile.png" alt="Profile" />
-          {dropdownOpen && (
-            <div className="dropdown-menu">
-              <ul>
-                <li><Link to="/editprofile">Edit Profile</Link></li>
-                <li><Link to="/login">Logout</Link></li>
-                <li><Link to="/profile">My Profile</Link></li>
-              </ul>
-            </div>
-          )}
-        </div>
+  className="profile-wrapper"
+  onMouseEnter={() => setDropdownOpen(true)}
+  onMouseLeave={() => setDropdownOpen(false)}
+>
+  <div className="profile-icon">
+    <img src="/images/profile.png" alt="Profile" />
+  </div>
+  {dropdownOpen && (
+    <div className="dropdown-menu">
+      <ul>
+        <li><Link to="/editprofile">Edit Profile</Link></li>
+        <li><Link to="/login">Logout</Link></li>
+        <li><Link to="/profile">My Profile</Link></li>
+      </ul>
+    </div>
+  )}
+</div>
       </div>
     </nav>
   );
